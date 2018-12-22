@@ -2,6 +2,8 @@
 
 Show refresh dialog/banner when the service worker found updated.
 
+![screen shot](./docs/screenshot.png)
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
@@ -10,7 +12,7 @@ Install with [npm](https://www.npmjs.com/):
 
 Or
 
-Load from [unpkg.com](https://unpkg.com/)
+Import from [unpkg.com](https://unpkg.com/):
 
 - UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js
 - mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.mjs

@@ -25,7 +25,9 @@ function showRefreshUI(registration, { message, onClick }) {
       padding: var(--sw-updatefound-refresh-dialog--padding, 16px);
       position: fixed;
       z-index: var(--sw-updatefound-refresh-dialog--z-index, 1px);
-      left: var(--sw-updatefound-refresh-dialog--left, 50%);
+      left: var(--sw-updatefound-refresh-dialog--left, auto);
+      right: var(--sw-updatefound-refresh-dialog--left, 5%);
+      top: var(--sw-updatefound-refresh-dialog--left, auto);
       bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
 `;
     dialog.textContent = message;
