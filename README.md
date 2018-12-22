@@ -19,6 +19,13 @@ Import from [unpkg.com](https://unpkg.com/):
 
 ## Usage
 
+You should inject refresh dialog script to two place.
+
+- Your Page: `index.html`
+- Your Service Worker: `sw.js`
+
+**Add to your page**(index.html):
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +46,21 @@ Import from [unpkg.com](https://unpkg.com/):
 </body>
 </html>
 ```
+
+**Add to your service worker**(sw.js):
+
+```js
+self.addEventListener("message", event => {
+    if (!event.data) {
+        return;
+    }
+    if (event.data === "skipWaiting") {
+        self.skipWaiting();
+    }
+});
+```
+
+- 
 
 ### Options
 
@@ -92,6 +114,50 @@ For example, you can overwrite it by defining `--sw-updatefound-refresh-dialog--
     }
 </style>
 ```
+
+## FAQ
+
+### Does not refresh when click the banner
+
+Do you forget to inject a script to service worker like `sw.js`?
+
+```js
+// sw.js
+self.addEventListener("message", event => {
+    if (!event.data) {
+        return;
+    }
+    if (event.data === "skipWaiting") {
+        self.skipWaiting();
+    }
+});
+```
+
+### `skipWaiting()` integration
+
+If you already did `skipWaiting()` in sw.js, you should remove the code from sw.js
+
+For example, workbox has `skipWaiting` and `clientsClaim`.
+These method trigger `statechange` event of the service worker without asking the user to reload manually.
+
+- [Skip Waiting and Clients Claim](https://developers.google.com/web/tools/workbox/modules/workbox-sw#skip_waiting_and_clients_claim)
+
+```diff
+// workbox init setting
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+
+workbox.core.setCacheNameDetails({ prefix: "website-v1" });
+workbox.googleAnalytics.initialize();
+- workbox.skipWaiting();
+- workbox.clientsClaim();
+
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute([]);
+```
+
+If you have called `skipWaiting` without asking the user to reload manually, this script do refresh page instantly.
+
+- [javascript - Refresh page on controllerchange in service worker - Stack Overflow](https://stackoverflow.com/questions/41891031/refresh-page-on-controllerchange-in-service-worker)
 
 ## Resources
 
