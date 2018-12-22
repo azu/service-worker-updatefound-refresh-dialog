@@ -19,14 +19,10 @@
     "lib/",
     "src/"
   ],
-  "main": "lib/service-worker-updatefound-refresh-dialog.js",
-  "umd:main": "lib/service-worker-updatefound-refresh-dialog.umd.js",
-  "module": "lib/service-worker-updatefound-refresh-dialog.mjs",
-  "source": "lib/service-worker-updatefound-refresh-dialog.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
+  "main": "dist/service-worker-updatefound-refresh-dialog.js",
+  "umd:main": "dist/service-worker-updatefound-refresh-dialog.umd.js",
+  "module": "dist/service-worker-updatefound-refresh-dialog.mjs",
+  "source": "src/service-worker-updatefound-refresh-dialog.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/azu/service-worker-updatefound-refresh-dialog.git"
@@ -34,8 +30,8 @@
   "scripts": {
     "start": "npm-run-all --parallel watch server",
     "server": "http-server ./ -p 13212",
-    "build": "microbundle --target web -e src/service-worker-updatefound-refresh-dialog.js",
-    "watch": "microbundle watch --target web -e service-worker-updatefound-refresh-dialog.js",
+    "build": "microbundle --target web -e src/service-worker-updatefound-refresh-dialog.js -o dist",
+    "watch": "microbundle watch --target web -e service-worker-updatefound-refresh-dialog.js -o dist",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
     "test:dev": "start-server-and-test http://localhost:13212 cy:open",
