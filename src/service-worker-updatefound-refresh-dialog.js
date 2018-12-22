@@ -4,6 +4,7 @@
 const isServiceWorker = 'ServiceWorkerGlobalScope' in self
     && self instanceof ServiceWorkerGlobalScope;
 // *1 in sw.js
+// receive "skipWaiting" message and invoke `skipWaiting()`
 if (isServiceWorker) {
     self.addEventListener("message", event => {
         if (!event.data) {
@@ -42,11 +43,13 @@ function showRefreshUI(registration, { message, onClick }) {
       right: var(--sw-updatefound-refresh-dialog--right, 5%);
       top: var(--sw-updatefound-refresh-dialog--top, initial);
       bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
+      transition: var(--sw-updatefound-refresh-dialog--transition, opacity 0.5s ease-out);
 `;
     dialog.textContent = message;
 
     var listener = function() {
         dialog.disabled = true;
+        dialog.style.opacity = 0;
         dialog.removeEventListener("click", listener);
         onClick(registration);
     };
