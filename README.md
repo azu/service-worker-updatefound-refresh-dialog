@@ -30,7 +30,7 @@ Import from [unpkg.com](https://unpkg.com/):
 <script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js"></script>
 <script>
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/mock/sw.js')
+        navigator.serviceWorker.register('/sw.js')
             .then(function(registration) {
                 serviceWorkerUpdatefoundRefreshDialog.register(registration);
             });
