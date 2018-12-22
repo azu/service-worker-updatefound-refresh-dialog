@@ -118,14 +118,17 @@ Do you forget to inject a script to service worker like `sw.js`?
 importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js");
 ```
 
-### `skipWaiting()` integration
+### `workbox` integration
 
-If you already did `skipWaiting()` in sw.js, you should remove the code from sw.js
+If you already did call `skipWaiting()` in sw.js, you should remove the code from sw.js
 
-For example, workbox has `skipWaiting` and `clientsClaim`.
-These method trigger `statechange` event of the service worker without asking the user to reload manually.
+For example, workbox has `workbox.skipWaiting()` and `workbox.clientsClaim()`.
+This method update and control a web page as soon as possible without asking the user to reload manually.
 
 - [Skip Waiting and Clients Claim](https://developers.google.com/web/tools/workbox/modules/workbox-sw#skip_waiting_and_clients_claim)
+
+`workbox.skipWaiting()`'s behavior conflict with this script.
+You should remove it and add `importScripts` to service worker script.
 
 ```diff
 // workbox init setting
@@ -133,9 +136,8 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox
 + importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js")
 
 workbox.core.setCacheNameDetails({ prefix: "website-v1" });
-workbox.googleAnalytics.initialize();
 - workbox.skipWaiting();
-- workbox.clientsClaim();
+workbox.clientsClaim();
 
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute([]);
@@ -149,7 +151,6 @@ If you have called `skipWaiting` without asking the user to reload manually, thi
 
 - [pwa-update-available/index.html at master · deanhume/pwa-update-available](https://github.com/deanhume/pwa-update-available/blob/master/index.html)
 - [Advanced Recipes  |  Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/guides/advanced-recipes)
-
 
 ## Changelog
 
