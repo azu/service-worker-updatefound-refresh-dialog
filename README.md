@@ -1,4 +1,4 @@
-# service-worker-updatefound-refresh-dialog
+# service-worker-updatefound-refresh-dialog [![Build Status](https://travis-ci.org/azu/service-worker-updatefound-refresh-dialog.svg?branch=master)](https://travis-ci.org/azu/service-worker-updatefound-refresh-dialog)
 
 Show refresh dialog/banner when the service worker found updated.
 
