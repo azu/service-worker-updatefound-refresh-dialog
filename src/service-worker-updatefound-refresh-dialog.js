@@ -16,7 +16,6 @@ function showRefreshUI(registration, { message, onClick }) {
     dialog.id = "service-worker-updatefound-refresh-dialog";
     dialog.dataset.testid = "service-worker-updatefound-refresh-dialog-button";
     dialog.style = `
-      visibility: visible;
       min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
       color: var(--sw-updatefound-refresh-dialog--color, #fff);
       background-color: var(--sw-updatefound-refresh-dialog--background-color, #333);
