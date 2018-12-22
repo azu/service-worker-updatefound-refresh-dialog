@@ -20,10 +20,10 @@ function showRefreshUI(registration, { message, onClick }) {
       min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
       color: var(--sw-updatefound-refresh-dialog--color, #fff);
       background-color: var(--sw-updatefound-refresh-dialog--background-color, #333);
-      text-align: center;
+      text-align: var(--sw-updatefound-refresh-dialog--text-align, center);
       border-radius: var(--sw-updatefound-refresh-dialog--border-radius, 2px);
       padding: var(--sw-updatefound-refresh-dialog--padding, 16px);
-      position: fixed;
+      position: text-align: var(--sw-updatefound-refresh-dialog--position, fixed);
       z-index: var(--sw-updatefound-refresh-dialog--z-index, 1px);
       left: var(--sw-updatefound-refresh-dialog--left, auto);
       right: var(--sw-updatefound-refresh-dialog--left, 5%);
