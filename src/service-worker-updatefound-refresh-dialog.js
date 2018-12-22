@@ -1,4 +1,4 @@
-// Based on thesse receipes
+// Based on these receipts
 // https://github.com/deanhume/pwa-update-available
 // https://developers.google.com/web/tools/workbox/guides/advanced-recipes
 
@@ -13,6 +13,8 @@ function defaultOnClickHandler(registration) {
 
 function showRefreshUI(registration, { message, onClick }) {
     var dialog = document.createElement("button");
+    dialog.id = "service-worker-updatefound-refresh-dialog";
+    dialog.dataset.testid = "service-worker-updatefound-refresh-dialog-button";
     dialog.style = `
       visibility: visible;
       min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
@@ -63,7 +65,7 @@ function onNewServiceWorker(registration, callback, options = { forceUpdate: fal
     registration.addEventListener("updatefound", listenInstalledStateChange);
 
     if (options.forceUpdate) {
-        listenInstalledStateChange();
+        callback();
     }
 }
 
@@ -72,7 +74,7 @@ function onNewServiceWorker(registration, callback, options = { forceUpdate: fal
  * @param {ServiceWorkerRegistration} registration
  * @param {{ message?:string, onClick?: function, forceUpdate?:boolean}}options
  */
-export function registerUpdatefoundDialog(registration, options = {}) {
+export function register(registration, options = {}) {
     var message = options.message || "A new version of this page is available. Click hre to update.";
     var onClick = options.onClick || defaultOnClickHandler;
     var forceUpdate = options.forceUpdate !== undefined ? options.forceUpdate : false;

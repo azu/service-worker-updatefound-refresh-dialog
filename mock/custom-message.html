@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show dialog</title>
+</head>
+<body>
+<script src="../lib/service-worker-updatefound-refresh-dialog.umd.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/mock/sw.js')
+            .then(function(registration) {
+                serviceWorkerUpdatefoundRefreshDialog.register(registration, {
+                    forceUpdate: true,
+                    message: "custom message",
+                    onClick: () => {
+                        document.title = "clicked";
+                    }
+                });
+            });
+    });
+</script>
+</body>
+</html>

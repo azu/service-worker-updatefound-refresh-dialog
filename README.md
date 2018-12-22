@@ -8,9 +8,58 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install service-worker-updatefound-refresh-dialog
 
+Or
+
+Load from [unpkg.com](https://unpkg.com/)
+
+- UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js
+- mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.mjs
+
 ## Usage
 
-- [ ] Write usage instructions
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+<body>
+<script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/mock/sw.js')
+            .then(function(registration) {
+                serviceWorkerUpdatefoundRefreshDialog.register(registration);
+            });
+    });
+</script>
+</body>
+</html>
+```
+
+### Options
+
+- `message`: Custom message
+- `onClick`: onClick handler for dialog
+- `forceUpdate`: force show updated UI for debug
+
+``js
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/mock/sw.js')
+            .then(function(registration) {
+                serviceWorkerUpdatefoundRefreshDialog.register(registration, {
+                    message: "Custom Message",
+                    onClick: (registration) => {
+                        if (!registration.waiting) {
+                            return;
+                        }
+                        registration.waiting.postMessage("skipWaiting");
+                    }
+                });
+            });
+    });
+``
 
 ## Changelog
 
@@ -20,7 +69,11 @@ See [Releases page](https://github.com/azu/service-worker-updatefound-refresh-di
 
 Install devDependencies and Run `npm test`:
 
-    npm test
+    yarn test
+
+Interactive mode
+
+    yarn test:dev
 
 ## Contributing
 
