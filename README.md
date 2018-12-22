@@ -46,7 +46,7 @@ Import from [unpkg.com](https://unpkg.com/):
 - `onClick`: onClick handler for dialog
 - `forceUpdate`: force show updated UI for debug
 
-``js
+```js
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/mock/sw.js')
             .then(function(registration) {
@@ -61,14 +61,14 @@ Import from [unpkg.com](https://unpkg.com/):
                 });
             });
     });
-``
+```
 
 ## Style
 
 Dialog's style use [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
 You can overwrite it by CSS Variables.
 
-````css
+```css
 min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
 color: var(--sw-updatefound-refresh-dialog--color, #fff);
 background-color: var(--sw-updatefound-refresh-dialog--background-color, #333);
@@ -81,7 +81,7 @@ left: var(--sw-updatefound-refresh-dialog--left, auto);
 right: var(--sw-updatefound-refresh-dialog--left, 5%);
 top: var(--sw-updatefound-refresh-dialog--left, auto);
 bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
-````
+```
 
 For example, you can overwrite it by defining `--sw-updatefound-refresh-dialog--left`.
 
