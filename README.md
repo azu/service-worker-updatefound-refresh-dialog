@@ -14,7 +14,7 @@ Or
 
 Import from [unpkg.com](https://unpkg.com/):
 
-- UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js
+- UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js
 - mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog?module
 
 ## Usage
@@ -34,7 +34,7 @@ You should inject refresh dialog script to two place.
     <title>Example</title>
 </head>
 <body>
-<script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js"></script>
+<script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js"></script>
 <script>
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js')
@@ -51,7 +51,7 @@ You should inject refresh dialog script to two place.
 
 ```js
 // sw.js
-importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js");
+importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js");
 ```
 
 ### Options
