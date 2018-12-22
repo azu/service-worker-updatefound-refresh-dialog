@@ -1,0 +1,62 @@
+{
+  "name": "service-worker-updatefound-refresh-dialog",
+  "version": "1.0.0",
+  "description": "Show refresh dialog/banner when the service worker found updated.",
+  "keywords": [
+    "refresh",
+    "serviceworker",
+    "sw",
+    "ui"
+  ],
+  "homepage": "https://github.com/azu/service-worker-updatefound-refresh-dialog",
+  "bugs": {
+    "url": "https://github.com/azu/service-worker-updatefound-refresh-dialog/issues"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/service-worker-updatefound-refresh-dialog.js",
+  "umd:main": "lib/service-worker-updatefound-refresh-dialog.umd.js",
+  "module": "lib/service-worker-updatefound-refresh-dialog.mjs",
+  "source": "lib/service-worker-updatefound-refresh-dialog.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/service-worker-updatefound-refresh-dialog.git"
+  },
+  "scripts": {
+    "build": "microbundle -e src/service-worker-updatefound-refresh-dialog.js",
+    "dev": "microbundle watch -e service-worker-updatefound-refresh-dialog.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\""
+  },
+  "devDependencies": {
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "microbundle": "^0.9.0",
+    "prettier": "^1.15.3"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 4
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
