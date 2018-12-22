@@ -1,6 +1,6 @@
 {
   "name": "service-worker-updatefound-refresh-dialog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Show refresh dialog/banner when the service worker found updated.",
   "keywords": [
     "refresh",
