@@ -1,6 +1,20 @@
 // Based on these receipts
 // https://github.com/deanhume/pwa-update-available
 // https://developers.google.com/web/tools/workbox/guides/advanced-recipes
+const isServiceWorker = 'ServiceWorkerGlobalScope' in self
+    && self instanceof ServiceWorkerGlobalScope;
+// *1 in sw.js
+// receive "skipWaiting" message and invoke `skipWaiting()`
+if (isServiceWorker) {
+    self.addEventListener("message", event => {
+        if (!event.data) {
+            return;
+        }
+        if (event.data === "skipWaiting") {
+            self.skipWaiting();
+        }
+    });
+}
 
 function defaultOnClickHandler(registration) {
     if (!registration.waiting) {
@@ -8,6 +22,7 @@ function defaultOnClickHandler(registration) {
         // calling postMessage()
         return;
     }
+    // post message to sw.js ===> *1
     registration.waiting.postMessage("skipWaiting");
 }
 
@@ -28,11 +43,13 @@ function showRefreshUI(registration, { message, onClick }) {
       right: var(--sw-updatefound-refresh-dialog--right, 5%);
       top: var(--sw-updatefound-refresh-dialog--top, initial);
       bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
+      transition: var(--sw-updatefound-refresh-dialog--transition, opacity 0.5s ease-out);
 `;
     dialog.textContent = message;
 
     var listener = function() {
         dialog.disabled = true;
+        dialog.style.opacity = 0;
         dialog.removeEventListener("click", listener);
         onClick(registration);
     };

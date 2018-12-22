@@ -14,7 +14,7 @@ Or
 
 Import from [unpkg.com](https://unpkg.com/):
 
-- UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js
+- UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js
 - mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog?module
 
 ## Usage
@@ -34,7 +34,7 @@ You should inject refresh dialog script to two place.
     <title>Example</title>
 </head>
 <body>
-<script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js"></script>
+<script src="https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js"></script>
 <script>
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js')
@@ -50,17 +50,9 @@ You should inject refresh dialog script to two place.
 **Add to your service worker**(sw.js):
 
 ```js
-self.addEventListener("message", event => {
-    if (!event.data) {
-        return;
-    }
-    if (event.data === "skipWaiting") {
-        self.skipWaiting();
-    }
-});
+// sw.js
+importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/dist/service-worker-updatefound-refresh-dialog.umd.js");
 ```
-
-- 
 
 ### Options
 
@@ -123,14 +115,7 @@ Do you forget to inject a script to service worker like `sw.js`?
 
 ```js
 // sw.js
-self.addEventListener("message", event => {
-    if (!event.data) {
-        return;
-    }
-    if (event.data === "skipWaiting") {
-        self.skipWaiting();
-    }
-});
+importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js");
 ```
 
 ### `skipWaiting()` integration
@@ -145,6 +130,7 @@ These method trigger `statechange` event of the service worker without asking th
 ```diff
 // workbox init setting
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
++ importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js")
 
 workbox.core.setCacheNameDetails({ prefix: "website-v1" });
 workbox.googleAnalytics.initialize();
