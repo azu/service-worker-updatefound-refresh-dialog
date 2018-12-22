@@ -69,18 +69,18 @@ Dialog's style use [CSS variables](https://developer.mozilla.org/en-US/docs/Web/
 You can overwrite it by CSS Variables.
 
 ```css
-min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
-color: var(--sw-updatefound-refresh-dialog--color, #fff);
-background-color: var(--sw-updatefound-refresh-dialog--background-color, #333);
-text-align: var(--sw-updatefound-refresh-dialog--text-align, center);
-border-radius: var(--sw-updatefound-refresh-dialog--border-radius, 2px);
-padding: var(--sw-updatefound-refresh-dialog--padding, 16px);
-position: text-align: var(--sw-updatefound-refresh-dialog--position, fixed);
-z-index: var(--sw-updatefound-refresh-dialog--z-index, 1px);
-left: var(--sw-updatefound-refresh-dialog--left, auto);
-right: var(--sw-updatefound-refresh-dialog--left, 5%);
-top: var(--sw-updatefound-refresh-dialog--left, auto);
-bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
+  min-width: var(--sw-updatefound-refresh-dialog--min-width, 250px);
+  color: var(--sw-updatefound-refresh-dialog--color, #fff);
+  background-color: var(--sw-updatefound-refresh-dialog--background-color, #333);
+  text-align: var(--sw-updatefound-refresh-dialog--text-align, center);
+  border-radius: var(--sw-updatefound-refresh-dialog--border-radius, 2px);
+  padding: var(--sw-updatefound-refresh-dialog--padding, 16px);
+  position: var(--sw-updatefound-refresh-dialog--position, fixed);
+  z-index: var(--sw-updatefound-refresh-dialog--z-index, 1);
+  left: var(--sw-updatefound-refresh-dialog--left, initial);
+  right: var(--sw-updatefound-refresh-dialog--right, 5%);
+  top: var(--sw-updatefound-refresh-dialog--top, initial);
+  bottom: var(--sw-updatefound-refresh-dialog--bottom, 30px);
 ```
 
 For example, you can overwrite it by defining `--sw-updatefound-refresh-dialog--left`.
