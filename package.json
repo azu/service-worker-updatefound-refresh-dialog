@@ -15,8 +15,7 @@
   "license": "MIT",
   "author": "azu",
   "files": [
-    "bin/",
-    "lib/",
+    "dist/",
     "src/"
   ],
   "main": "dist/service-worker-updatefound-refresh-dialog.js",
