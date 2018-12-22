@@ -76,7 +76,7 @@ function onNewServiceWorker(registration, callback, options = { forceUpdate: fal
  * @param {{ message?:string, onClick?: function, forceUpdate?:boolean}}options
  */
 export function register(registration, options = {}) {
-    var message = options.message || "A new version of this page is available. Click hre to update.";
+    var message = options.message || "A new version of this page is available. Click here to update.";
     var onClick = options.onClick || defaultOnClickHandler;
     var forceUpdate = options.forceUpdate !== undefined ? options.forceUpdate : false;
     // Track updates to the Service Worker.
