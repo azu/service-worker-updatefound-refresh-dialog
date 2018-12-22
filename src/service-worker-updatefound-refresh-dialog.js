@@ -1,6 +1,19 @@
 // Based on these receipts
 // https://github.com/deanhume/pwa-update-available
 // https://developers.google.com/web/tools/workbox/guides/advanced-recipes
+const isServiceWorker = 'ServiceWorkerGlobalScope' in self
+    && self instanceof ServiceWorkerGlobalScope;
+// *1 in sw.js
+if (isServiceWorker) {
+    self.addEventListener("message", event => {
+        if (!event.data) {
+            return;
+        }
+        if (event.data === "skipWaiting") {
+            self.skipWaiting();
+        }
+    });
+}
 
 function defaultOnClickHandler(registration) {
     if (!registration.waiting) {
@@ -8,6 +21,7 @@ function defaultOnClickHandler(registration) {
         // calling postMessage()
         return;
     }
+    // post message to sw.js ===> *1
     registration.waiting.postMessage("skipWaiting");
 }
 
