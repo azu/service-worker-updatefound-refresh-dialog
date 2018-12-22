@@ -120,7 +120,7 @@ importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/servi
 
 ### `workbox` integration
 
-If you already did call `skipWaiting()` in sw.js, you should remove the code from sw.js
+If you already did call `workbox.skipWaiting()` in sw.js, you should remove the code from sw.js
 
 For example, workbox has `workbox.skipWaiting()` and `workbox.clientsClaim()`.
 This method update and control a web page as soon as possible without asking the user to reload manually.
