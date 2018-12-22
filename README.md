@@ -93,6 +93,11 @@ For example, you can overwrite it by defining `--sw-updatefound-refresh-dialog--
 </style>
 ```
 
+## Resources
+
+- [pwa-update-available/index.html at master · deanhume/pwa-update-available](https://github.com/deanhume/pwa-update-available/blob/master/index.html)
+- [Advanced Recipes  |  Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/guides/advanced-recipes)
+
 
 ## Changelog
 
