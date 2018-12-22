@@ -39,6 +39,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
     "test:dev": "start-server-and-test http://localhost:13212 cy:open",
+    "pretest": "npm run build",
     "test": "start-server-and-test http://localhost:13212 cy:run",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\""
   },
