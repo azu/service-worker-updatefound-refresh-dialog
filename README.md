@@ -15,7 +15,7 @@ Or
 Import from [unpkg.com](https://unpkg.com/):
 
 - UMD: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js
-- mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.mjs
+- mjs: https://unpkg.com/service-worker-updatefound-refresh-dialog?module
 
 ## Usage
 
