@@ -12,10 +12,7 @@
             .then(function(registration) {
                 serviceWorkerUpdatefoundRefreshDialog.register(registration, {
                     forceUpdate: true,
-                    message: "custom message",
-                    onClick: () => {
-                        document.title = "clicked";
-                    }
+                    message: "custom message"
                 });
             });
     });
