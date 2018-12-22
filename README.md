@@ -54,8 +54,6 @@ You should inject refresh dialog script to two place.
 importScripts("https://unpkg.com/service-worker-updatefound-refresh-dialog/service-worker-updatefound-refresh-dialog.umd.js");
 ```
 
-- 
-
 ### Options
 
 - `message`: Custom message
